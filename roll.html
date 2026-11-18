@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    .link-roll {
+        display: inline-grid;
+        overflow: hidden;
+    }
+
+    .link-roll > span {
+        grid-area: 1/1;
+        transition: transform 0.3s ease;
+    }
+
+    .linkRoll > span + span {
+        transform: translateY(100%);
+    }
+
+    .quickLink:is(:hover, :focus-visible) .linkRoll > span:first-child {
+        transform: translateY(-100%);
+    }
+
+    .quickLink:is(:hover, :focus-visible) .linkRoll > span + span {
+        transform: translate(0)
+    }
+
+
+</style>
+<body>
+    <a class="quickLink" href="/collections/all">
+        <span class="linkRoll">
+            <span>
+                store
+            </span>
+            <span aria-hidden="true"> Store</span>>
+            </span>
+        </span>
+    </a>
+</body>
+</html>

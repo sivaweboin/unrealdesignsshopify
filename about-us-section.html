@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About us</title>
+<style>* { box-sizing: border-box; } body { margin: 0; }</style>
+<style>
+.about-us {
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
+  align-items: start;
+  gap: 24px;
+  max-width: 1840px;
+  margin-inline: auto;
+  padding: clamp(96px, 16vw, 290px) clamp(16px, 2vw, 36px) clamp(88px, 11vw, 200px);
+  color: #171717;
+}
+.about-us__label {
+  justify-self: start;
+  margin: 0;
+  padding: .65em 1.1em;
+  border: 1px solid #e9e9e9;
+  border-radius: 999px;
+  background: #f7f7f7;
+  font: 500 clamp(15px, 1.35vw, 24px)/1.25 Arial, sans-serif;
+}
+.about-us__statement {
+  margin: 0;
+  font: 400 clamp(28px, 2.5vw, 46px)/1.28 Georgia, serif;
+  letter-spacing: -.015em;
+}
+.about-us__statement span { color: #595959; }
+@media (max-width: 700px) {
+  .about-us {
+    grid-template-columns: 1fr;
+    padding-block: 72px;
+  }
+}
+</style>
+</head>
+<body>
+<section class="about-us" aria-labelledby="about-us-title">
+  <h2 class="about-us__label" id="about-us-title">About us</h2>
+  <p class="about-us__statement">“We believe good design should be both beautiful and practical. <span>We choose everyday essentials for how well they work, how well they’re made, and how long you’ll want to keep them.”</span></p>
+</section>
+</body>
+</html>

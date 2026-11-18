@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Featured Collections</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; color: #171717; font-family: Arial, sans-serif; }
+
+.featured { padding: clamp(30px, 5vw, 84px) clamp(20px, 3.5vw, 64px); }
+.featured__layout { width: 100%; display: grid; grid-template-columns: 2fr 3fr; align-items: center; gap: clamp(24px, 4vw, 68px); }
+.featured h2 { margin: 0; font-size: clamp(32px, 4.4vw, 76px); line-height: 1; letter-spacing: -.045em; text-transform: uppercase; }
+.featured p { max-width: 34ch; line-height: 1.55; color: #555; }
+.featured__shop { display: inline-block; border-radius: 99px; padding: 14px 22px; background: #171717; color: white; text-decoration: none; }
+.featured__rail { display: flex; gap: 16px; overflow-x: auto;  padding-bottom: 12px; }
+.featured__card { flex: 0 0 min(94%, 380px); position: relative; scroll-snap-align: start; color: #171717; text-decoration: none; }
+.featured__card img { display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; background: #ddd4ca; }
+.featured__details { display: grid; gap: 4px; padding: 12px 0 2px; }
+.featured__name { font-weight: 600; }
+.featured__price { color: #555; font-size: .9375rem; }
+.featured__rail { scrollbar-width: none; }
+.featured__rail::-webkit-scrollbar { display: none; }
+.featured a:focus-visible, .featured__rail:focus-visible { outline: 2px solid #171717; outline-offset: -2px; }
+@media (max-width: 760px) { .featured__layout { grid-template-columns: 1fr; } .featured__card { flex-basis: min(88%, 380px); } }
+
+.featured { padding: 0; }
+.featured__pin { background: #f6f3ee; padding-block: clamp(20px, 4svh, 48px); }
+.featured[data-pinned] { min-height: calc(var(--featured-height) + var(--featured-travel)); }
+.featured[data-pinned] .featured__pin { position: sticky; top: 0; }
+
+
+.featured__layout { isolation: isolate; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); }
+.featured__rail { position: relative; z-index: 1; min-width: 0; }
+.featured[data-pinned] .featured__card { flex-basis: min(var(--featured-card-width), 380px, 57svh); }
+.featured[data-pinned] .featured__pin { overflow: clip; }
+.featured[data-pinned] .featured__rail { margin-left: var(--featured-overlap, 0px); background: #f6f3ee; }
+@media (max-width: 760px) { .featured__layout { grid-template-columns: minmax(0, 1fr); } }
+
+@media (max-width: 760px) {
+  .featured[data-pinned] .featured__pin { padding-block: 20px; }
+  .featured[data-pinned] .featured__layout { gap: 18px; }
+  .featured[data-pinned] .featured__card { flex-basis: min(var(--featured-card-width), 33.6svh); }
+}
+
+.featured__layout > :first-child { padding-inline: clamp(20px, 3.5vw, 64px) 0; }
+.featured[data-pinned] .featured__layout > :first-child { filter: blur(var(--featured-blur, 0px)); }
+@media (max-width: 760px) {
+  .featured__layout > :first-child { padding-inline: 20px; }
+}
+
+.featured__placeholder {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 4 / 5;
+  color: #eadaaf;
+  background: radial-gradient(ellipse at 50% 30%, #3c5060, #101b24);
+  font: 1rem Georgia, serif;
+  letter-spacing: .16em;
+}
+.featured__card:nth-child(even) .featured__placeholder {
+  background: radial-gradient(ellipse at 50% 30%, #62483c, #251812);
+}
+</style>
+</head>
+<body>
+<section class="featured" aria-labelledby="featured-title">
+  <div class="featured__pin">
+  <div class="featured__layout">
+    <div>
+      <h2 id="featured-title">Featured Collections</h2>
+      <p>Explore fragrances and attars from AK &amp; Co.</p>
+      <a class="featured__shop" href="https://akandco-store.myshopify.com/">Shop new arrivals</a>
+    </div>
+    <div class="featured__rail" role="region" aria-label="Browse collections" tabindex="0">
+      <a class="featured__card" href="https://akandco-store.myshopify.com/">
+        <span class="featured__placeholder" aria-hidden="true"><span>AK &amp; CO</span></span>
+        <span class="featured__details">
+          <span class="featured__name">Amber Coffee</span>
+          <span class="featured__price">&#8377;249.00</span>
+        </span>
+      </a>
+      <a class="featured__card" href="https://akandco-store.myshopify.com/">
+        <span class="featured__placeholder" aria-hidden="true"><span>AK &amp; CO</span></span>
+        <span class="featured__details">
+          <span class="featured__name">Vampire Blood</span>
+          <span class="featured__price">&#8377;249.00</span>
+        </span>
+      </a>
+      <a class="featured__card" href="https://akandco-store.myshopify.com/">
+        <span class="featured__placeholder" aria-hidden="true"><span>AK &amp; CO</span></span>
+        <span class="featured__details">
+          <span class="featured__name">Royal Amber</span>
+          <span class="featured__price">&#8377;249.00</span>
+        </span>
+      </a>
+      <a class="featured__card" href="https://akandco-store.myshopify.com/">
+        <span class="featured__placeholder" aria-hidden="true"><span>AK &amp; CO</span></span>
+        <span class="featured__details">
+          <span class="featured__name">Musk Bloom</span>
+          <span class="featured__price">&#8377;249.00</span>
+        </span>
+      </a>
+      <a class="featured__card" href="https://akandco-store.myshopify.com/">
+        <span class="featured__placeholder" aria-hidden="true"><span>AK &amp; CO</span></span>
+        <span class="featured__details">
+          <span class="featured__name">Sandalwood</span>
+          <span class="featured__price">&#8377;149.00</span>
+        </span>
+      </a>
+      <a class="featured__card" href="https://akandco-store.myshopify.com/">
+        <span class="featured__placeholder" aria-hidden="true"><span>AK &amp; CO</span></span>
+        <span class="featured__details">
+          <span class="featured__name">Black Oud</span>
+          <span class="featured__price">&#8377;249.00</span>
+        </span>
+      </a>
+      <a class="featured__card" href="https://akandco-store.myshopify.com/">
+        <span class="featured__placeholder" aria-hidden="true"><span>AK &amp; CO</span></span>
+        <span class="featured__details">
+          <span class="featured__name">Amber Essence</span>
+          <span class="featured__price">&#8377;149.00</span>
+        </span>
+      </a>
+    </div>
+  </div>
+  </div>
+</section>
+
+
+<script>
+(() => {
+  const section = document.querySelector('.featured');
+  const pin = section.querySelector('.featured__pin');
+  const rail = section.querySelector('.featured__rail');
+  const motion = matchMedia('(prefers-reduced-motion: no-preference)');
+  let travel = 0;
+  let sweep = 0;
+  let frame = 0;
+
+  function update() {
+    frame = 0;
+    if (!section.hasAttribute('data-pinned') || rail.contains(document.activeElement)) return;
+    const distance = Math.max(0, -section.getBoundingClientRect().top);
+    rail.style.setProperty('--featured-overlap', -Math.min(sweep, distance) + 'px');
+    const blur = sweep ? Math.min(1, distance / sweep) * 5 : 0;
+    section.style.setProperty('--featured-blur', blur + 'px');
+    rail.scrollLeft = Math.max(0, distance - sweep);
+  }
+
+  function schedule() {
+    if (!frame) frame = requestAnimationFrame(update);
+  }
+
+  function measure() {
+    section.removeAttribute('data-pinned');
+    const layout = section.querySelector('.featured__layout');
+    sweep = Math.max(0, rail.getBoundingClientRect().left - layout.getBoundingClientRect().left);
+    rail.style.setProperty('--featured-card-width', rail.clientWidth * (matchMedia('(max-width: 760px)').matches ? .88 : .94) + 'px');
+    travel = Math.max(0, rail.scrollWidth - rail.clientWidth);
+    sweep = Math.min(sweep, travel);
+    section.toggleAttribute('data-pinned', motion.matches && travel > 0);
+    travel = Math.max(0, rail.scrollWidth - rail.clientWidth);
+    sweep = Math.min(sweep, travel);
+    if (!travel || pin.offsetHeight > innerHeight) section.removeAttribute('data-pinned');
+    section.style.setProperty('--featured-height', pin.offsetHeight + 'px');
+    section.style.setProperty('--featured-travel', travel + 'px');
+    schedule();
+  }
+
+  addEventListener('scroll', schedule, { passive: true });
+  addEventListener('resize', measure);
+  rail.addEventListener('focusout', schedule);
+  motion.addEventListener('change', measure);
+  measure();
+})();
+</script>
+</body>
+</html>
