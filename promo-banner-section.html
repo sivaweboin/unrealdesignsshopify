@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Promotional banner</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        color: #171717;
+        background: white;
+      }
+      .promo {
+        padding: clamp(24px, 3vw, 60px);
+        max-width: 2160px;
+        margin: auto;
+      }
+      .promo__banner {
+        position: relative;
+        min-height: clamp(500px, 35vw, 710px);
+        overflow: hidden;
+        border-radius: 15px;
+        display: grid;
+        place-items: center;
+        background: #dededb;
+        isolation: isolate;
+      }
+      /* Replace this placeholder background with a Shopify image setting. */
+      .promo__background {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        background:
+          radial-gradient(ellipse at 14% 100%, #b9bab4 0, transparent 32%),
+          linear-gradient(120deg, #eeefeb 8%, #d5d5d2 58%, #a7a8a4 100%);
+      }
+      .promo__background::before {
+        content: "";
+        position: absolute;
+        width: 45%;
+        height: 150%;
+        left: 50%;
+        top: -40%;
+        transform: rotate(-35deg);
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(90, 90, 85, 0.17),
+          transparent
+        );
+        filter: blur(22px);
+      }
+      .promo__content {
+        text-align: center;
+        padding: 70px 24px;
+      }
+      .promo__title {
+        margin: 0 0 38px;
+        font:
+          400 clamp(42px, 4vw, 78px)/1.22 Georgia,
+          serif;
+        letter-spacing: -0.03em;
+      }
+      .promo__title span {
+        display: block;
+        color: #626262;
+      }
+      .promo__proof {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 18px;
+        text-align: left;
+      }
+      .promo__avatars {
+        display: flex;
+        padding-left: 9px;
+      }
+      .promo__avatar {
+        width: 46px;
+        height: 46px;
+        margin-left: -9px;
+        border: 2px solid white;
+        border-radius: 50%;
+        background: #b8b6ae;
+        display: grid;
+        place-items: center;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .promo__avatar:nth-child(2) {
+        background: #929b92;
+      }
+      .promo__avatar:nth-child(3) {
+        background: #c2a99a;
+      }
+      .promo__stars {
+        color: #f54b3e;
+        letter-spacing: 2px;
+        font-size: 23px;
+        line-height: 1;
+      }
+      .promo__caption {
+        margin-top: 8px;
+        font-size: clamp(16px, 1.2vw, 23px);
+        color: #626262;
+      }
+      .promo__caption strong {
+        color: #171717;
+        font-weight: 500;
+      }
+      .promo__button {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 36px;
+        padding: 19px 34px;
+        border: 1px solid #171717;
+        border-radius: 999px;
+        color: #171717;
+        text-decoration: none;
+        font-size: 20px;
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
+      }
+      .promo__button span {
+        display: inline-block;
+        transition: transform 0.3s ease;
+      }
+      .promo__button:hover {
+        background: #171717;
+        color: #fff;
+      }
+      .promo__button:hover span {
+        transform: rotate(-45deg);
+      }
+      .promo__button:focus-visible {
+        outline: 3px solid #555;
+        outline-offset: 4px;
+      }
+      @media (max-width: 600px) {
+        .promo {
+          padding: 16px;
+        }
+        .promo__banner {
+          min-height: 510px;
+        }
+        .promo__title {
+          margin-bottom: 32px;
+        }
+        .promo__proof {
+          gap: 12px;
+        }
+        .promo__avatar {
+          width: 38px;
+          height: 38px;
+        }
+        .promo__stars {
+          font-size: 19px;
+        }
+        .promo__button {
+          font-size: 17px;
+          padding: 16px 27px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .promo__button,
+        .promo__button span {
+          transition: none;
+        }
+      }
+
+      .button-arrow {
+        width: 19px;
+        height: 19px;
+        flex: none;
+        transform: rotate(0deg);
+        transform-origin: 50% 50%;
+        transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .hero__button:hover .button-arrow,
+      .stats__button:hover .button-arrow,
+      .promo__button:hover .button-arrow {
+        transform: rotate(-45deg);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .button-arrow {
+          transition: none;
+        }
+      }
+    
+.hero__avatar, .promo__avatar { object-fit: cover; }
+
+.promo__background { background: linear-gradient(rgba(255,255,255,.18),rgba(255,255,255,.18)), url("https://framerusercontent.com/images/SN33tOSRylImcqMbCTaZmr7OCe0.png") center 54% / cover no-repeat; }
+.promo__background::before { display:none; }
+</style>
+  </head>
+  <body>
+    <!-- Replace the placeholder background, avatars, copy, and link with Shopify section settings. -->
+    <section class="promo" aria-labelledby="promo-title">
+      <div class="promo__banner">
+        <div class="promo__background" aria-hidden="true"></div>
+        <div class="promo__content">
+          <h1 class="promo__title" id="promo-title">
+            The Perfect Product Is Just A <span>Click Away</span>
+          </h1>
+          <div class="promo__proof">
+            <div class="promo__avatars" aria-hidden="true">
+              <span class="promo__avatar">A</span
+              ><span class="promo__avatar">B</span
+              ><img class="promo__avatar" src="https://framerusercontent.com/images/nT1cGEJVsEsq5BKTakwZoJjJbM.png" alt="">
+            </div>
+            <div>
+              <div class="promo__stars" aria-label="5 out of 5 stars">
+                ★★★★★
+              </div>
+              <div class="promo__caption">
+                <strong>230k+</strong> Happy customers
+              </div>
+            </div>
+          </div>
+          <a class="promo__button" href="/collections/all"
+            >Store
+            <svg
+              class="button-arrow"
+              aria-hidden="true"
+              viewBox="0 0 24 24"
+              fill="none"
+            >
+              <path
+                d="M4 12h15M13 6l6 6-6 6"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              /></svg
+          ></a>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

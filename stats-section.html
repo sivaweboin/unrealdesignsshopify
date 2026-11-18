@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Essential — Stats section</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        color: #171717;
+        background: #fff;
+        font-family: Arial, sans-serif;
+      }
+      .stats {
+        position: relative;
+        min-height: 910px;
+        overflow: hidden;
+        display: grid;
+        place-items: center;
+        isolation: isolate;
+      }
+      .stats__orbit {
+        position: absolute;
+        width: min(100%, 1660px);
+        height: 100%;
+        inset: 0;
+        margin: auto;
+        pointer-events: none;
+        -webkit-mask-image: linear-gradient(
+          to bottom,
+          #000 0%,
+          #000 72%,
+          transparent 96%
+        );
+        mask-image: linear-gradient(
+          to bottom,
+          #000 0%,
+          #000 72%,
+          transparent 96%
+        );
+      }
+      .stats__image {
+        position: absolute;
+        width: clamp(85px, 8.7vw, 165px);
+        aspect-ratio: 1;
+        border: 8px solid #ededed;
+        border-radius: 50%;
+        object-fit: cover;
+        transform: translate(-50%, -50%);
+        will-change: transform;
+      }
+      .stats__image:nth-child(1) {
+        left: 6%;
+        top: 75%;
+      }
+      .stats__image:nth-child(2) {
+        left: 11%;
+        top: 55%;
+      }
+      .stats__image:nth-child(3) {
+        left: 18%;
+        top: 38%;
+      }
+      .stats__image:nth-child(4) {
+        left: 27%;
+        top: 25%;
+      }
+      .stats__image:nth-child(5) {
+        left: 38%;
+        top: 16%;
+      }
+      .stats__image:nth-child(6) {
+        left: 50%;
+        top: 13%;
+      }
+      .stats__image:nth-child(7) {
+        left: 62%;
+        top: 16%;
+      }
+      .stats__image:nth-child(8) {
+        left: 73%;
+        top: 25%;
+      }
+      .stats__image:nth-child(9) {
+        left: 82%;
+        top: 38%;
+      }
+      .stats__image:nth-child(10) {
+        left: 89%;
+        top: 56%;
+      }
+      .stats__image:nth-child(11) {
+        left: 94%;
+        top: 76%;
+      }
+      .stats__content {
+        position: relative;
+        z-index: 1;
+        width: min(90%, 800px);
+        padding: 300px 0 100px;
+        text-align: center;
+      }
+      .stats__eyebrow {
+        display: inline-block;
+        padding: 16px 27px;
+        border: 1px solid #e9e9e9;
+        border-radius: 999px;
+        background: #f7f7f7;
+        font-size: 23px;
+      }
+      .stats__heading {
+        margin: 47px 0 35px;
+        font:
+          400 clamp(48px, 4.1vw, 78px)/1.22 Georgia,
+          serif;
+        letter-spacing: -0.035em;
+      }
+      .stats__heading span {
+        display: block;
+        color: #626262;
+      }
+      .stats__description {
+        max-width: 510px;
+        margin: 0 auto;
+        color: #626262;
+        font-size: 27px;
+        line-height: 1.45;
+      }
+      .stats__button {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 36px;
+        padding: 20px 30px;
+        color: white;
+        background: #171717;
+        border-radius: 999px;
+        text-decoration: none;
+        font-size: 16px;
+        border: 1px solid #171717;
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease,
+          border-color 0.3s ease;
+      }
+      .stats__button span {
+        display: inline-block;
+        transition: transform 0.3s ease;
+      }
+      .stats__button:hover {
+        background: #fff;
+        color: #171717;
+      }
+      .stats__button:hover span {
+        transform: rotate(-45deg);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .stats__button,
+        .stats__button span {
+          transition: none;
+        }
+      }
+      .stats__button:focus-visible {
+        outline: 3px solid #888;
+        outline-offset: 4px;
+      }
+      @media (max-width: 700px) {
+        .stats {
+          min-height: 730px;
+          align-items: start;
+        }
+        .stats__orbit {
+          width: 115%;
+          left: -7.5%;
+          height: 400px;
+        }
+        .stats__image {
+          width: clamp(64px, 17vw, 100px);
+          border-width: 5px;
+        }
+        .stats__image:nth-child(1),
+        .stats__image:nth-child(2),
+        .stats__image:nth-child(10),
+        .stats__image:nth-child(11) {
+          display: none;
+        }
+        .stats__image:nth-child(3) {
+          left: 7%;
+          top: 52%;
+        }
+        .stats__image:nth-child(4) {
+          left: 18%;
+          top: 29%;
+        }
+        .stats__image:nth-child(5) {
+          left: 34%;
+          top: 16%;
+        }
+        .stats__image:nth-child(6) {
+          left: 50%;
+          top: 12%;
+        }
+        .stats__image:nth-child(7) {
+          left: 66%;
+          top: 16%;
+        }
+        .stats__image:nth-child(8) {
+          left: 82%;
+          top: 29%;
+        }
+        .stats__image:nth-child(9) {
+          left: 93%;
+          top: 52%;
+        }
+        .stats__content {
+          padding: 265px 0 80px;
+        }
+        .stats__eyebrow {
+          padding: 12px 22px;
+          font-size: 17px;
+        }
+        .stats__heading {
+          margin: 28px 0 24px;
+          font-size: clamp(42px, 9vw, 60px);
+        }
+        .stats__description {
+          font-size: 19px;
+        }
+      }
+
+      .button-arrow {
+        width: 19px;
+        height: 19px;
+        flex: none;
+        transform: rotate(0deg);
+        transform-origin: 50% 50%;
+        transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .hero__button:hover .button-arrow,
+      .stats__button:hover .button-arrow,
+      .promo__button:hover .button-arrow {
+        transform: rotate(-45deg);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .button-arrow {
+          transition: none;
+        }
+      }
+    
+      @media (max-width: 700px) {
+        .stats { min-height: 640px; }
+        .stats__orbit { width: 135%; left: -17.5%; top: 0; right: auto; bottom: auto; margin: 0; height: 300px; mask-image: linear-gradient(to bottom, #000 0%, #000 66%, transparent 94%); -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 66%, transparent 94%); }
+        .stats__image { width: clamp(62px, 18vw, 76px); border-width: 5px; }
+        .stats__content { width: calc(100% - 32px); padding: 220px 0 80px; }
+        .stats__eyebrow { padding: 10px 16px; font-size: 14px; }
+        .stats__heading { margin: 28px 0 22px; font-size: clamp(35px, 9.7vw, 46px); line-height: 1.28; letter-spacing: -.035em; }
+        .stats__description { max-width: 330px; font-size: 16px; line-height: 1.4; }
+        .stats__button { margin-top: 24px; padding: 13px 21px; font-size: 14px; }
+      }
+</style>
+  </head>
+  <body>
+    <!-- Replace the images, copy, and link below with Shopify section settings and blocks when converting to Liquid. -->
+    <section class="stats" aria-labelledby="stats-heading">
+      <div class="stats__orbit" aria-hidden="true">
+        <img
+          class="stats__image"
+          src="https://framerusercontent.com/images/MKTdbezeqUUrolGltUOAIG3sRg.png"
+          alt=""
+        />
+        <img
+          class="stats__image"
+          src="https://framerusercontent.com/images/GxJ7bqRid5liIOB1FVg9TZJ7M.png"
+          alt=""
+        />
+        <img
+          class="stats__image"
+          src="https://framerusercontent.com/images/bZNGs9VJC7dswgDkCkX7iLc7U.png"
+          alt=""
+        />
+        <img
+          class="stats__image"
+          src="https://framerusercontent.com/images/f9qA5AbcJUKCtArMaR0MghhX6vc.png"
+          alt=""
+        />
+        <img
+          class="stats__image"
+          src="https://framerusercontent.com/images/Yrh7HbbMCn3HXrqSrrnlohbLI.png"
+          alt=""
+        />
+        <img
+          class="stats__image"
+          src="https://framerusercontent.com/images/uhZKyF3IWQelSEWD8lMHvnmvc4.png"
+          alt=""
+        />
+        <img
+          class="stats__image"
+          src="https://framerusercontent.com/images/Ht0OY1QpaA0q8bQCoeKDLunXoM.png"
+          alt=""
+        />
+        <img
+          class="stats__image"
+          src="https://framerusercontent.com/images/tqlWY6b3WGtxl97y8EeyoFtVJY.jpg"
+          alt=""
+        />
+        <img
+          class="stats__image"
+          src="https://framerusercontent.com/images/molTOYRs0VdDxZwRsipXZ9P9fU.png"
+          alt=""
+        />
+        <img
+          class="stats__image"
+          src="https://framerusercontent.com/images/Oju4FKZdjxEThiEIsO5ALCdpw.png"
+          alt=""
+        />
+        <img
+          class="stats__image"
+          src="https://framerusercontent.com/images/P8CNF2cwxNwWnQZQHlVwepcQs.png"
+          alt=""
+        />
+      </div>
+      <div class="stats__content">
+        <div class="stats__eyebrow">Stats</div>
+        <h1 class="stats__heading" id="stats-heading">
+          1200+ Products Got <span>Sold Last Month</span>
+        </h1>
+        <p class="stats__description">
+          “At Essential, we believe beauty should feel effortless and
+          empowering.”
+        </p>
+        <a class="stats__button" href="/collections/all"
+          >Store
+          <svg
+            class="button-arrow"
+            aria-hidden="true"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M4 12h15M13 6l6 6-6 6"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            /></svg
+        ></a>
+      </div>
+    </section>
+    <script>
+      (() => {
+        const section = document.querySelector(".stats");
+        const orbit = section.querySelector(".stats__orbit");
+        const images = [...orbit.querySelectorAll(".stats__image")];
+        const reducedMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        );
+        let scheduled = false;
+        let currentShift = null;
+        function update() {
+          scheduled = false;
+          const rect = section.getBoundingClientRect();
+          const progress = Math.max(
+            0,
+            Math.min(1, (innerHeight - rect.top) / (innerHeight + rect.height)),
+          );
+          const mobile = innerWidth <= 700;
+          // Images travel along an ellipse, keeping the arch intact as the page scrolls.
+          const targetShift = reducedMotion.matches
+            ? 0
+            : (progress - 0.5) * 0.9;
+          if (currentShift === null || reducedMotion.matches)
+            currentShift = targetShift;
+          else currentShift += (targetShift - currentShift) * 0.12;
+          const shift = currentShift;
+          const radiusX = mobile ? 50 : 45;
+          const radiusY = mobile ? 54 : 70;
+          const centerY = mobile ? 94 : 83;
+          images.forEach((image, index) => {
+            const angle =
+              Math.PI + (index / (images.length - 1)) * Math.PI + shift;
+            const x =
+              ((50 + radiusX * Math.cos(angle)) * orbit.clientWidth) / 100;
+            const y =
+              ((centerY + radiusY * Math.sin(angle)) * orbit.clientHeight) /
+              100;
+            image.style.left = "0";
+            image.style.top = "0";
+            image.style.transform = `translate3d(${x}px, ${y}px, 0) translate(-50%, -50%)`;
+          });
+          if (
+            !reducedMotion.matches &&
+            Math.abs(targetShift - currentShift) > 0.0001
+          )
+            requestUpdate();
+        }
+        function requestUpdate() {
+          if (!scheduled) {
+            scheduled = true;
+            requestAnimationFrame(update);
+          }
+        }
+        addEventListener("scroll", requestUpdate, { passive: true });
+        addEventListener("resize", requestUpdate);
+        reducedMotion.addEventListener("change", requestUpdate);
+        update();
+      })();
+    </script>
+  </body>
+</html>

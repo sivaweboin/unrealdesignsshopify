@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Essential — Hero</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        color: #171717;
+        background: #fff;
+        font-family: Arial, sans-serif;
+      }
+      .hero-header {
+        height: 86px;
+        padding: 0 clamp(24px, 3.2vw, 64px);
+        border-bottom: 1px solid #ededed;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .hero-header__logo {
+        display: grid;
+        place-items: center;
+        width: 46px;
+        height: 46px;
+        border-radius: 10px;
+        color: white;
+        background: linear-gradient(145deg, #414849, #101213);
+        font:
+          25px Georgia,
+          serif;
+        text-decoration: none;
+      }
+      .hero-header__nav {
+        display: flex;
+        align-items: center;
+        gap: 26px;
+      }
+      .hero-header__nav a {
+        color: #555;
+        text-decoration: none;
+        font-size: 16px;
+      }
+      .hero-header__nav a:hover {
+        color: #111;
+      }
+      .hero-header__shop {
+        border: 1px solid #333;
+        border-radius: 99px;
+        padding: 13px 23px;
+        color: #171717;
+        text-decoration: none;
+        transition:
+          background 0.3s,
+          color 0.3s;
+      }
+      .hero-header__shop:hover {
+        background: #171717;
+        color: white;
+      }
+      .hero {
+        text-align: center;
+        overflow: hidden;
+        padding: 110px 24px 0;
+      }
+      .hero__proof {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 14px;
+        text-align: left;
+      }
+      .hero__avatars {
+        display: flex;
+        padding-left: 8px;
+      }
+      .hero__avatar {
+        display: grid;
+        place-items: center;
+        margin-left: -8px;
+        width: 32px;
+        height: 32px;
+        border: 2px solid white;
+        border-radius: 50%;
+        background: #abb3ad;
+        color: white;
+        font-size: 11px;
+      }
+      .hero__avatar:nth-child(2) {
+        background: #918f87;
+      }
+      .hero__avatar:nth-child(3) {
+        background: #c0aa9b;
+      }
+      .hero__stars {
+        color: #f34d3c;
+        font-size: 16px;
+        letter-spacing: 1px;
+        line-height: 1;
+      }
+      .hero__rating {
+        color: #606060;
+        font-size: 15px;
+        margin-top: 5px;
+      }
+      .hero__rating strong {
+        color: #171717;
+        font-weight: 500;
+      }
+      .hero__title {
+        margin: 35px 0 25px;
+        font:
+          400 clamp(48px, 5vw, 76px)/1.25 Georgia,
+          serif;
+        letter-spacing: -0.035em;
+      }
+      .hero__title span {
+        display: block;
+        color: #626262;
+      }
+      .hero__description {
+        max-width: 360px;
+        margin: 0 auto;
+        color: #606060;
+        font-size: 18px;
+        line-height: 1.45;
+      }
+      .hero__button {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-top: 24px;
+        padding: 14px 24px;
+        border: 1px solid #171717;
+        border-radius: 99px;
+        background: #171717;
+        color: white;
+        font-size: 16px;
+        text-decoration: none;
+        transition:
+          background 0.3s,
+          color 0.3s;
+      }
+      .hero__button span {
+        display: inline-block;
+        transition: transform 0.3s;
+      }
+      .hero__button:hover {
+        background: white;
+        color: #171717;
+      }
+      .hero__button:hover span {
+        transform: rotate(-45deg);
+        transition: transform 0.6s ease;
+      }
+      .hero__art {
+        display: block;
+        width: min(440px, 70vw);
+        height: auto;
+        margin: 55px auto -2px;
+      }
+      @media (max-width: 700px) {
+        .hero-header {
+          height: 70px;
+        }
+        .hero-header__nav {
+          gap: 14px;
+        }
+        .hero-header__nav a {
+          font-size: 13px;
+        }
+        .hero-header__nav a:nth-child(n + 3) {
+          display: none;
+        }
+        .hero-header__shop {
+          padding: 10px 15px;
+          font-size: 14px;
+        }
+        .hero {
+          padding-top: 75px;
+        }
+        .hero__title {
+          font-size: clamp(40px, 9vw, 56px);
+        }
+        .hero__description {
+          font-size: 16px;
+        }
+        .hero__art {
+          margin-top: 45px;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .hero__button,
+        .hero__button span,
+        .hero-header__shop {
+          transition: none;
+        }
+      }
+    
+  .button-arrow { width: 19px; height: 19px; flex: none; transform: rotate(0deg); transform-origin: 50% 50%; transition: transform 1s cubic-bezier(.22, 1, .36, 1); }
+  .hero__button:hover .button-arrow, .stats__button:hover .button-arrow, .promo__button:hover .button-arrow { transform: rotate(-45deg); }
+  @media (prefers-reduced-motion: reduce) { .button-arrow { transition: none; } }
+
+.hero { position: relative; isolation: isolate; }
+.hero__art { position: relative; z-index: 2; transform: translate3d(0, var(--hero-rise, 0px), 0); will-change: transform; -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 84%, transparent 100%); mask-image: linear-gradient(to bottom, #000 0%, #000 84%, transparent 100%); }
+@media (prefers-reduced-motion: reduce) { .hero__art { transform: none; will-change: auto; } }
+
+.hero__avatar, .promo__avatar { object-fit: cover; }
+</style>
+  </head>
+  <body>
+    <!-- Hero copy, links and product illustration are placeholders for Shopify settings. -->
+    <header class="hero-header">
+      <a class="hero-header__logo" href="#hero" aria-label="Home">◒</a>
+      <nav class="hero-header__nav" aria-label="Main navigation">
+        <a href="/collections/all">Store</a><a href="/blogs/news">Blog</a
+        ><a href="/pages/our-methods">Our methods</a
+        ><a href="/pages/contact">Support</a>
+      </nav>
+      <a class="hero-header__shop" href="/collections/all">Shop &nbsp; →</a>
+    </header>
+    <section class="hero" id="hero" aria-labelledby="hero-title">
+      <div class="hero__proof">
+        <div class="hero__avatars" aria-hidden="true">
+          <img class="hero__avatar" src="https://framerusercontent.com/images/nT1cGEJVsEsq5BKTakwZoJjJbM.png" alt=""><span class="hero__avatar">B</span
+          ><img class="hero__avatar" src="https://framerusercontent.com/images/VQjluMNywKhZ8T1UbafuyggOpg.png" alt="">
+        </div>
+        <div>
+          <div class="hero__stars" aria-label="5 out of 5 stars">★★★★★</div>
+          <div class="hero__rating"><strong>230k+</strong> Happy customers</div>
+        </div>
+      </div>
+      <h1 class="hero__title" id="hero-title">
+        Built To Buy,<span>Designed To Delight</span>
+      </h1>
+      <p class="hero__description">
+        Natural tools and curated products designed to elevate your lifestyle.
+      </p>
+      <a class="hero__button" href="/collections/all"
+        >Store <svg class="button-arrow" aria-hidden="true" viewBox="0 0 24 24" fill="none"><path d="M4 12h15M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></a
+      >
+      <svg
+        class="hero__art"
+        viewBox="0 0 440 500"
+        role="img"
+        aria-label="Placeholder illustration of a skincare bottle"
+      >
+        <defs>
+          <linearGradient id="hero-bottle" x1="0" x2="1">
+            <stop stop-color="#d3d3cd" />
+            <stop offset=".35" stop-color="#f9f9f6" />
+            <stop offset=".8" stop-color="#deded8" />
+            <stop offset="1" stop-color="#b9b9b2" />
+          </linearGradient>
+          <linearGradient id="hero-cap" x1="0" x2="1">
+            <stop stop-color="#bcbdb8" />
+            <stop offset=".4" stop-color="#f8f8f5" />
+            <stop offset="1" stop-color="#aaa9a4" />
+          </linearGradient>
+        </defs>
+        <ellipse cx="220" cy="483" rx="175" ry="17" fill="#e5e5e1" />
+        <rect
+          x="108"
+          y="133"
+          width="224"
+          height="350"
+          rx="29"
+          fill="url(#hero-bottle)"
+        />
+        <path
+          d="M131 28 Q220 17 309 28 L309 156 Q220 165 131 156Z"
+          fill="url(#hero-cap)"
+        />
+        <path
+          d="M131 28 Q220 18 309 28"
+          fill="none"
+          stroke="#eee"
+          stroke-width="4"
+        />
+        <text
+          x="220"
+          y="273"
+          text-anchor="middle"
+          fill="#888982"
+          font-family="Georgia,serif"
+          font-size="24"
+          letter-spacing="3"
+        >
+          ESSENTIAL
+        </text>
+        <text
+          x="220"
+          y="302"
+          text-anchor="middle"
+          fill="#9c9d96"
+          font-family="Arial,sans-serif"
+          font-size="10"
+          letter-spacing="2"
+        >
+          DAILY SKINCARE
+        </text>
+      </svg>
+    </section>
+  
+<script>
+(() => {
+  const hero = document.querySelector('.hero');
+  const art = hero && hero.querySelector('.hero__art');
+  if (!art) return;
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  let current = 0, frame = 0;
+  function update() {
+    frame = 0;
+    const rect = hero.getBoundingClientRect();
+    const target = reduced.matches ? 0 : -Math.min(Math.max(-rect.top, 0) * 0.38, Math.min(innerHeight * 0.3, 180));
+    if (reduced.matches) current = 0;
+    else current += (target - current) * 0.12;
+    art.style.setProperty('--hero-rise', current.toFixed(2) + 'px');
+    if (!reduced.matches && Math.abs(target - current) > 0.1) frame = requestAnimationFrame(update);
+  }
+  function schedule() { if (!frame) frame = requestAnimationFrame(update); }
+  addEventListener('scroll', schedule, { passive: true });
+  addEventListener('resize', schedule);
+  reduced.addEventListener('change', schedule);
+  schedule();
+})();
+</script>
+</body>
+</html>
